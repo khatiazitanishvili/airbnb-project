@@ -45,24 +45,24 @@ model Account{
 
 }
 
-model Listing{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+model Listing {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
   title String
   description String
   imageSrc String
   createdAt DateTime @default(now())
-  category String
+  category  String
   roomCount Int
   guestCount Int
+  bathCount Int
   locationValue String
   userId String @db.ObjectId
   price Int
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[]
-
-   
 }
+
 
 model Reservation{
   id String @id @default(auto()) @map("_id") @db.ObjectId
