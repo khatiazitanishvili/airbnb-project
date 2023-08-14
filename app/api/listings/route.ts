@@ -1,11 +1,7 @@
-'use client';
-
 import { NextResponse } from "next/server";
 
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
-
-import {Listing} from "@prisma/client"
 
 export async function POST(
   request: Request, 
@@ -29,11 +25,11 @@ export async function POST(
     price,
    } = body;
 
-  // Object.keys(body).forEach((value: any) => {
-  //   if (!body[value]) {
-  //     NextResponse.error();
-  //   }
-  // });
+  Object.keys(body).forEach((value: any) => {
+    if (!body[value]) {
+      NextResponse.error();
+    }
+  });
 
   const listing = await prisma.listing.create({
     data: {
@@ -47,7 +43,6 @@ export async function POST(
       locationValue: location.value,
       price: parseInt(price, 10),
       userId: currentUser.id
-    
     }
   });
 
