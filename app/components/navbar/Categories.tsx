@@ -99,6 +99,10 @@ const pathname = usePathname();
 
 const isMainPage = pathname === '/'
 
+if (!isMainPage) {
+    return null;
+  }
+
   return (
     <Container>
     <div className='
@@ -113,7 +117,7 @@ const isMainPage = pathname === '/'
             <CategoryBox
             key={item.label}
             label={item.label}
-           selected={category === item.label}
+            selected={category === item.label}
             icon={item.icon}
             />
         ))}
@@ -122,4 +126,4 @@ const isMainPage = pathname === '/'
   )
 }
 
-export default Categories
+export default Categories;

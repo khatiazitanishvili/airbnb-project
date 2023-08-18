@@ -19,7 +19,7 @@ export default async function getCurrentUser() {
       where: {
         email: session.user.email as string,
       }
-    });
+    }); 
 
     if (!currentUser) {
       return null;
