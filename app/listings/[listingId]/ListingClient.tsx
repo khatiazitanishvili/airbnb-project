@@ -3,12 +3,11 @@ import { categories } from "@/app/components/navbar/Categories";
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import ListingHead from "../../components/listings/ListingHead";
-import { Reservation } from "@prisma/client";
 import Container from "@/app/components/Container";
 import ListingInfo from "@/app/components/listings/ListingInfo";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { useRouter } from "next/navigation";
-import { differenceInCalendarDays, differenceInDays, eachDayOfInterval } from "date-fns";
+import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import axios from "axios";
 import toast from "react-hot-toast";
 import ListingReservation from "@/app/components/listings/ListingReservation";
@@ -73,7 +72,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
     .then(() => {
       toast.success('Listing reserved!');
       setDateRange(initialDateRange);
-      // Redirect to /trips
+      router.push('/trips');
       router.refresh();
     })
     .catch(() => {

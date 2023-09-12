@@ -1,9 +1,10 @@
+import prisma from "@/app/libs/prismadb"
 
 
 interface IParams {
     listingId?: string,
-    userId: string,
-    authorId: string
+    userId?: string,
+    authorId?: string
 }
 
 export default async function getReservations(
@@ -27,7 +28,7 @@ try {
         query.listing = { userId: authorId }
     }
 
-    const reservations = await prisma?.reservation.findMany({
+    const reservations = await prisma.reservation.findMany({
         where: query,
         include: {
             listing: true,
