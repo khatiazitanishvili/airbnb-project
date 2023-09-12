@@ -4,8 +4,7 @@
 Welcome to the Airbnb Clone project! This web application replicates the core features and user experience of Airbnb and was developed as part of a comprehensive web development tutorial.
 
 
-
-![Screenshot](/public/sc.png)
+![Screenshot](/public/screen.png)
 
 ## Table of Contents
 - [Overview](#overview)
