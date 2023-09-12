@@ -6,7 +6,7 @@ import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
 
 interface HopeProps {
-  searchParams: IListingsParams;
+  searchParams: IListingsParams
 }
 
 const Home = async ({ searchParams }: HopeProps) => {
